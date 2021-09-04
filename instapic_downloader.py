@@ -1,5 +1,4 @@
 import pip
-from selenium.webdriver.chrome import options
 try:
     import webbrowser
     import selenium
