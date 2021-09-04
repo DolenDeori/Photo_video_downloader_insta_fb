@@ -1,28 +1,53 @@
+import pip
+from selenium.webdriver.chrome import options
+try:
+    import webbrowser
+    import selenium
+    import bs4
+except:
+    pip.main(['install' , 'webbrowser'])
+    pip.main(['install' , 'selenium'])
+    pip.main(['install' , 'bs4'])
+
 from bs4 import BeautifulSoup
 from selenium.webdriver.chrome.options import Options
 from selenium import webdriver
 import webbrowser
-import pip
-try:
-    import matplotlib
-except:
-    pip.main(['install' , "matplotlib"])
 
-url = 'https://www.instagram.com/p/CRY9PR7nBDo/?utm_source=ig_web_copy_link'
 
-chrome_options = Options()
-user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36'
-chrome_options.headless = True
-chrome_options.add_argument(f'user-agent={user_agent}')
 
-driver = webdriver.Chrome(options=chrome_options)
+def get_url(url , option):
+    chrome_options = Options()
+    chrome_options.headless = True
+    user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36'
+    chrome_options.add_argument(f'user-agent={user_agent}')
 
-driver.get(url)
+    browser = webdriver.Chrome(options=chrome_options)
+    browser.get(url)
+    soup = BeautifulSoup(browser.page_source , features='html5lib')
 
-soup = BeautifulSoup(driver.page_source , features="html5lib")
+    if (option == 0):
+        get_meta = soup.find('meta' , property='og:image')
+        image_link = get_meta['content']
+        return image_link
+    elif (option == 1):
+        get_meta = soup.find('meta' , property='og:video')
+        video_link = get_meta['content']
+        return video_link
+    else:
+        return None
 
-image = soup.find('meta' , property = 'og:video')
-image = soup.find('meta' , property = 'og:image')
 
-image_url = image['content']
-webbrowser.open(image_url , new=0 , autoraise=True)
+# url = 'https://www.instagram.com/p/CRY9PR7nBDo/?utm_source=ig_web_copy_link'
+
+url = input('Enter Your Url :')
+while True:
+    option = int(input('Image [0]\nVideo [1] : '))
+    if (option == 1 or option == 0):
+        break
+    else:
+        continue
+ 
+
+object_url = get_url(url , option)
+webbrowser.open(object_url , new=0 , autoraise=True)
