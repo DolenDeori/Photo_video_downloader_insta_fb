@@ -37,8 +37,6 @@ def get_url(url , option):
         return None
 
 
-# url = 'https://www.instagram.com/p/CRY9PR7nBDo/?utm_source=ig_web_copy_link'
-
 url = input('Enter Your Url :')
 while True:
     option = int(input('Image [0]\nVideo [1] : '))
