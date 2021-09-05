@@ -1,5 +1,5 @@
-# insta_photo_video_downloader
-This is python file to download photo and video from instagram.
+# photo_video_downloader_insta_fb
+This is a python programme to download any instagram or facebook's photo and video downloader.
 
 ## How to use it.
 * Download the file
