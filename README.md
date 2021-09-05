@@ -1,4 +1,4 @@
-# photo_video_downloader_insta_fb
+# Photo_video_downloader_insta_fb
 This is a python programme to download any instagram or facebook's photo and video downloader.
 
 ## How to use it.
