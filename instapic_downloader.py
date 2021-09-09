@@ -1,13 +1,3 @@
-import pip
-try:
-    import webbrowser
-    import selenium
-    import bs4
-except:
-    pip.main(['install' , 'webbrowser'])
-    pip.main(['install' , 'selenium'])
-    pip.main(['install' , 'bs4'])
-
 from bs4 import BeautifulSoup
 from selenium.webdriver.chrome.options import Options
 from selenium import webdriver
