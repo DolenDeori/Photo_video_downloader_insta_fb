@@ -3,6 +3,7 @@ This is a python programme to download any instagram or facebook's photo and vid
 
 ## How to use it.
 * Download the file
+* install the dependencis.
 * Run It
 * That's it 😜
 * Copy the url from a photo or video from instagram and then paste when it ask for the url , choose between a image or video then it will open the image or video in a new browser where you can download it.
